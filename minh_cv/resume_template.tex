@@ -1,0 +1,199 @@
+\documentclass[margin,line]{res}
+%\documentclass[line]{res}
+%\renewcommand{\rmdefault}{phv} % Arial
+%\renewcommand{\sfdefault}{phv} % Arial
+\usepackage{hyperref}
+\usepackage[none]{hyphenat}
+\hypersetup{colorlinks=false}
+\topmargin -.3in
+\oddsidemargin -.55in
+\evensidemargin -.95in
+%\sectionwidth=1 in
+\textwidth=6.05 in
+\textheight=9.7in
+\itemsep=0in
+\parsep=0in
+\addtolength{\textwidth}{0.15in}
+%	\addtolength{\textheight}{3in}
+
+\newenvironment{list1}{
+  \begin{list}{\ding{113}}{%
+      \setlength{\itemsep}{0in}
+      \setlength{\parsep}{0in} \setlength{\parskip}{0in}
+      \setlength{\topsep}{0in} \setlength{\partopsep}{0in} 
+      \setlength{\leftmargin}{0.17in}}}{\end{list}}
+\newenvironment{list2}{
+  \begin{list}{$\bullet$}{%
+      \setlength{\itemsep}{0in}
+      \setlength{\parsep}{0in} \setlength{\parskip}{0in}
+      \setlength{\topsep}{0in} \setlength{\partopsep}{0in} 
+      \setlength{\leftmargin}{0.2in}}}{\end{list}}
+
+
+\begin{document}
+%\makeheading{\textbf{\Large{Minh X Hoang}}}
+\name{\huge Minh X. Hoang  \vspace*{.1in}}
+\begin{resume}
+
+%\section{\sc Interests}
+%Focused Crawling \textbar Machine Learning \textbar Data Cleaning \textbar Data Integration \textbar  Information Visualization  
+
+\section{\sc Contact Information}
+%
+% NOTE: Mind where the & separators and \\ breaks are in the following
+%       table.
+%
+% ALSO: \rcollength is the width of the right column of the table
+%       (adjust it to your liking; default is 1.85in).
+%
+
+%\newlength{\rcollength}\setlength{\rcollength}{1.95in}%
+%
+\href{mailto:mhoang@cs.ucsb.edu}{mhoang@cs.ucsb.edu} \hfill \href{http://cs.ucsb.edu/\~mhoang}{cs.ucsb.edu/$\sim$mhoang} \\
+805-637-1551\hfill \href{https://www.linkedin.com/in/minhhx}{www.linkedin.com/in/minhhx}
+\vspace*{-0.05in}
+
+\section{\sc Education}
+{\bf Ph.D. in Computer Science}\hfill {\bf (expected) Jun 2017}\\
+\emph{University of California, Santa Barbara, CA}\\
+GPA: xxx
+%\vspace*{-.1in}
+\vspace*{-0.05in}
+
+{\bf B.E. in Computer Science} \hfill {\bf Aug 2010}\\
+\emph{Hanoi University of Science and Technology, Hanoi, Vietnam}\\
+Ranked xxx in Computer Science Department
+\vspace*{-0.05in}
+
+\section{\sc Technical\\Skills}
+\emph{Languages}: Proficient in xxx. Have experience with xxx\vspace*{0.02in}\\
+\emph{Operating Systems}: UNIX, Windows\vspace*{0.02in}\\
+\emph{Frameworks/Tools}: xxx
+%\emph{Bilingual}: English (Fluent) and Vietnamese (Native)
+\vspace*{-0.05in}
+
+\section{\sc Expertise}
+%\section{\large \bf Specialties}\vspace*{.03in}
+xxx
+\vspace*{-0.05in}
+
+\section{\sc Research Experience}
+{\bf Data Mining and Bioinformatics Laboratory}, UC Santa Barbara, CA \hfill {\bf Jul 2011 - present}
+\\{\bf Research Assistant}
+\\\underline{Project:} {\em Forecasting information cascades in social networks}
+\begin{list2}
+\item Designed novel approaches to summarize and estimate the statistics and evolution of information spread in social networks based on partial observations in an accurate and scalable manner.
+\end{list2}
+\vspace{-0.15in}\underline{Project:} {\em Mining discriminative subgraphs from global-state networks}
+\begin{list2}
+\item Proposed a fast and accurate algorithm to extract discriminative subgraphs that best predict the global state of networks given local states on nodes.
+\end{list2}
+\vspace{-0.15in}\underline{Project:} {\em Answering top-k representative queries on graph databases}
+\begin{list2}
+\item Proposed novel index structure to efficiently compute top-k answer set that is both relevant and representative in graph databases with speedup of up to three orders of magnitude over baselines.
+\end{list2}
+\vspace*{-0.05in}
+\section{\sc Relevant Industry Experience}
+{\bf Microsoft Research Asia}, Beijing, China  \hfill {\bf Jun - Sep 2015}
+\\{\bf Research Intern}
+\\\underline{Project:} {\em Spatio-temporal model for predicting urban traffic flows from taxi GPS data.}
+\begin{list2}
+\item Devised a scalable spatio-temporal algorithm to predict the flows of taxis and bikes for different functional regions of Beijing and New York with over 40\% improvement over baselines.
+\item Collaborated with 2 team members on collecting and cleaning business data.
+\end{list2}
+\vspace*{-0.05in}
+{\bf Adobe Systems}, San Jose, CA  \hfill {\bf Jul - Sep 2014}
+\\{\bf Machine Learning and Data Science Intern}
+\\\underline{Project:} {\em Expertise-based clustering of artists on Behance.net online social network}
+\begin{list2}
+\item Designed an algorithm to detect communities of creative users in a large heterogeneous network of 7 million users, utilizing both their profiles and their activities to capture users' expertise.
+\item Worked biweekly with newly acquired Adobe company to ensure smooth transfer of data and relevant business-related project goals.
+\item Presented research findings and reported experimental results biweekly on a new community detection algorithm to other team members and the lead researcher of the acquired company.
+\end{list2}
+\vspace*{-0.05in}
+{\bf VNG Research, VNG Corporation}, Hanoi, Vietnam  \hfill {\bf Aug 2010 - Jul 2011}
+\\{\bf R\&D Engineer}
+%\\Researched and developed the latest technologies for Zing Me, the largest Vietnamese social network with more than 8 million active users, to ensure highest quality online user experience.
+\\\underline{Projects:} {\em Friend suggestion and feed ranking systems}
+%\newpage
+\begin{list2}
+\item Designed and implemented Friend Suggestion System for Zing Me, the largest Vietnamese social network with over 10 million users, and increased friendship suggestion accuracy from 53\% to 86\%.
+\item Designed and implemented Feed Ranking System using Redis for storage and Thrift for interface with web-based applications.
+\item Communicated with various business departments (e.g., front-end and back-end teams) to implement efficient system design and smooth product launches.
+\end{list2}
+\vspace*{-0.05in}
+{\bf IBM T.J. Watson Research Center}, Yorktown Heights, NY  \hfill {\bf Jun - Sep 2013}
+\\{\bf Research Intern}
+\\\underline{Project:} {\em Distributed system for analyzing call data records}
+\begin{list2}
+\item Designed and implemented a Hadoop system to detect anomalies in phone call networks.
+\item Proposed a new method for detecting anomalies in evolving networks.
+\item Discussed weekly with 2 IBM researchers on anomaly detection algorithms and system design.
+\end{list2}
+\vspace*{-0.05in}
+\section{\sc Additional Experience}
+{\bf Raytheon BBN Technologies}, Cambridge, MA  \hfill {\bf Jun - Sep 2012}
+\\{\bf Advanced Networking Graduate Intern}
+%\\\underline{Mentor:} Ram Ramanathan (ramanath@bbn.com)
+\\\underline{Project:} {\em Structural properties and evolution of collaboration networks: A simplicial perspective}
+\begin{list2}
+%\item Study group dynamics in collaboration networks using simplicial complex to gain meaningful insights into the formation and evolution of real-world networks.% that the traditional graph representation overlooks.
+\item Studied group dynamics in the formation and evolution of collaboration networks.
+\item Discussed weekly with a BBN researcher on evaluation metrics for group dynamics, and presented findings to researchers at the US Army Research lab.
+\end{list2}
+\vspace{-0.05in}
+{\bf Laboratory of Networking}, HUST, Hanoi, Vietnam  \hfill {\bf Jan - Jul 2010}
+\\{\bf Research Intern}
+\\\underline{Project:} {\em Biometric-based network access control and information security system}
+\begin{list2}
+\item Researched multimodal biometric fusion at matching score level, leading to an improvement in error rate from 2.57\% to 0.17\% in comparison with single-fingerprint system.
+\item Implemented and integrated multimodal biometric authentication solution into hybrid Biometric/PKI-based access control system.
+\item Collected fingerprint data from 50 students at HUST to test the new authentication solution in a realistic environment.
+\end{list2}
+\vspace*{-0.05in}
+{\bf BKIS Security, Bkav Corporation}, Hanoi, Vietnam \hfill {\bf 2007 - 2010}
+\\{\bf Security Engineer}
+\begin{list2}
+\item Researched security vulnerabilities (SQL-injection, heap-based and stack-based buffer overflow).
+\item Analyzed malicious codes and software vulnerabilities; issued patches and fixes.
+\item Implemented security software, including local network and software vulnerability scanners.
+\item Trained new interns on popular tools and techniques related to security vulnerabilities.
+\end{list2}
+
+\section{\sc Selected Publications}
+{\small [1]} GPOP: Group-based Popularity Prediction of Online Content. (acceptance rate 17\%)\\  \hspace*{0.2in}{\bf Minh X. Hoang}, Xuan-Hong Dang, Xiang Wu, Zhenyu Yan, Ambuj K. Singh.\\ \hspace*{0.2in}\emph{2017 WWW International World Wide Web Conference}\\
+{\small [2]} FCCF: Forecasting City-wide Flows of Crowd using Big Data. (acceptance rate 18\%)\\  \hspace*{0.2in}{\bf Minh X. Hoang}, Yu Zheng, Ambuj K. Singh.\\ \hspace*{0.2in}\emph{2016 ACM SIGSPATIAL International Conference on Advances in Geographic Information Systems}\\
+{\small [3]} Beyond Models: Forecasting Complex Network Processes Directly from Data. (acceptance rate 16\%)
+\\\hspace*{0.2in}Bruno Ribeiro, {\bf Minh X. Hoang}, Ambuj K. Singh.\\\hspace*{0.2in}\emph{2015 WWW International World Wide Web Conference}\\
+{\small [4]} Answering Top-k Representative Queries on Graph Databases. (acceptance rate 25\%)
+\\  \hspace*{0.2in}Sayan Ranu, {\bf Minh X. Hoang}, Ambuj K. Singh. \\
+\hspace*{0.2in}\emph{2014 ACM SIGMOD International Conference on Management of Data}\\
+{\small [5]} Mining Discriminative Subgraphs from Global-state Networks. (acceptance rate 17\%)
+\\  \hspace*{0.2in}Sayan Ranu, {\bf Minh X. Hoang}, Ambuj K. Singh.\\\hspace*{0.2in}\emph{2013 ACM SIGKDD Conference of Knowledge Discovery and Data Mining}
+%\vspace*{.1in}
+
+\section{\sc Relevant Coursework}
+\begin{tabular}{ l l l}
+Machine Learning&
+Data and Knowledge Bases & 
+Web Search and Mining\\
+Artificial Intelligence&
+Data Structures and Algorithms&
+Computational Geometry\\
+Deep Learning&
+Distributed Systems&
+Approximations and NP-Completeness\\
+Network Security&
+Bioinformatics&
+Combinatorial Algorithms\\
+\end{tabular}
+
+\section{\sc Selected Honors and Awards}
+\begin{tabular}{ l p{5.05in}}
+2016 & xxx\\
+2014 & xxx\\
+\end{tabular}
+\vspace*{-0.1in}
+
+\end{resume}
+\end{document}
