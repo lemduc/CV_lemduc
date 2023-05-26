@@ -1,4 +1,4 @@
 # CV of Duc Minh Le 
-My CV
+My most update to date CV, based on https://github.com/posquit0/Awesome-CV
 
-Updated: Aug 2017 
+Updated: May 2023 
