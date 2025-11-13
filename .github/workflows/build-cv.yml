@@ -18,17 +18,19 @@ jobs:
     - name: Install LaTeX
       run: |
         sudo apt-get update
-        sudo apt-get install -y texlive-xetex texlive-fonts-extra texlive-latex-extra
+        sudo apt-get install -y texlive-xetex texlive-fonts-extra texlive-latex-extra chktex
+
+    - name: Lint LaTeX files
+      run: |
+        chktex -q -n 1 -n 2 -n 3 -n 8 -n 13 -n 25 -n 36 cv.tex || true
+        chktex -q -n 1 -n 2 -n 3 -n 8 -n 13 -n 25 -n 36 cv_short.tex || true
+      continue-on-error: true
 
     - name: Build full CV
       run: make cv
 
     - name: Build short CV
       run: make cv_short
-
-    - name: Build resume
-      run: make resume
-      continue-on-error: true
 
     - name: Build cover letter
       run: make coverletter
@@ -41,7 +43,6 @@ jobs:
         path: |
           cv.pdf
           cv_short.pdf
-          resume.pdf
           coverletter.pdf
         retention-days: 90
         if-no-files-found: warn

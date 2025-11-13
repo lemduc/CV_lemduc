@@ -1,0 +1,45 @@
+# Pre-commit hooks for CV repository
+# Install: pip install pre-commit
+# Setup: pre-commit install
+# Run manually: pre-commit run --all-files
+
+repos:
+  # Basic file checks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: trailing-whitespace
+        exclude: '\.pdf$'
+      - id: end-of-file-fixer
+        exclude: '\.pdf$'
+      - id: check-added-large-files
+        args: ['--maxkb=5000']
+      - id: check-case-conflict
+      - id: mixed-line-ending
+        args: ['--fix=lf']
+
+  # Prevent committing LaTeX build artifacts
+  - repo: local
+    hooks:
+      - id: check-latex-artifacts
+        name: Check for LaTeX build artifacts
+        entry: bash -c 'if git diff --cached --name-only | grep -E "\.(aux|log|out|fls|fdb_latexmk|synctex\.gz)$"; then echo "Error: LaTeX build artifacts detected. Run make clean first."; exit 1; fi'
+        language: system
+        pass_filenames: false
+
+      - id: clean-latex-artifacts
+        name: Clean LaTeX artifacts before commit
+        entry: make clean
+        language: system
+        pass_filenames: false
+        always_run: true
+
+  # LaTeX linting (optional - may produce warnings)
+  - repo: local
+    hooks:
+      - id: chktex-lint
+        name: Lint LaTeX files with chktex
+        entry: bash -c 'for file in "$@"; do chktex -q -n 1 -n 2 -n 3 -n 8 -n 13 -n 25 -n 36 "$file" || true; done'
+        language: system
+        files: '\.tex$'
+        pass_filenames: true

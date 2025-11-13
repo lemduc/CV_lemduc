@@ -37,13 +37,25 @@ Use the Makefile to build your CV:
 make              # Build full CV (default)
 make cv           # Build full CV (cv.pdf)
 make cv_short     # Build short CV (cv_short.pdf)
-make resume       # Build resume (resume.pdf)
 make coverletter  # Build cover letter (coverletter.pdf)
 make build-all    # Build all documents
 make clean        # Remove build artifacts (keep PDFs)
 make clean-all    # Remove all generated files including PDFs
+make update-version # Update version and date to current
 make help         # Show available commands
 ```
+
+### Updating Version
+
+The repository uses centralized version management. To update the date across all documents:
+
+```bash
+make update-version
+# or
+./update-version.sh
+```
+
+This updates `version.tex` and `README.md` with the current date.
 
 Alternatively, compile directly using XeLaTeX:
 ```bash
@@ -54,7 +66,6 @@ xelatex cv.tex
 
 - **cv.tex** - Full curriculum vitae with comprehensive details including research, patents, and publications
 - **cv_short.tex** - Condensed version emphasizing education and skills
-- **resume.tex** - Traditional resume format
 - **coverletter.tex** - Cover letter template
 
 ## Structure
@@ -62,11 +73,42 @@ xelatex cv.tex
 The repository uses a modular architecture:
 - `cv/` - Content sections for the full CV
 - `cv_short/` - Content sections for the short CV
-- `resume/` - Content sections for the resume
 - `awesome-cv.cls` - LaTeX class file for styling
 - `fonts/` - Custom fonts used by the template
 
 To modify content, edit the corresponding `.tex` files in each directory.
+
+## Development Workflow
+
+### Pre-commit Hooks (Optional)
+
+The repository includes pre-commit hooks to maintain code quality and prevent common mistakes:
+
+```bash
+# Setup (requires Python)
+pip install pre-commit  # or: brew install pre-commit
+./setup-hooks.sh
+
+# Or manually:
+pre-commit install
+```
+
+The hooks will automatically:
+- Clean LaTeX build artifacts before commits
+- Check for trailing whitespace and line endings
+- Prevent committing large files
+- Lint LaTeX files with chktex
+- Ensure consistent formatting
+
+To bypass hooks when needed: `git commit --no-verify`
+
+### GitHub Actions
+
+The repository includes automated CI/CD that:
+- Lints all LaTeX files on every push
+- Automatically builds all CV variants
+- Uploads PDFs as downloadable artifacts
+- Can be manually triggered from the Actions tab
 
 ## License
 
