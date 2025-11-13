@@ -116,6 +116,25 @@ The CI/CD workflow (`.github/workflows/build-cv.yml`):
 - Uploads PDFs as artifacts (90-day retention)
 - Can be manually triggered via workflow_dispatch
 
+### Release Automation
+
+The release workflow (`.github/workflows/release.yml`):
+- Triggers when a version tag is pushed (e.g., `v2025.11`)
+- Builds all CV documents
+- Creates SHA256 checksums for verification
+- Automatically creates a GitHub release
+- Attaches PDFs and checksums to the release
+
+To create a release:
+```bash
+git tag v2025.11
+git push origin master --tags
+```
+
+**Note**: PDFs are now gitignored. To access built PDFs:
+- Download from GitHub Releases (for tagged versions)
+- Download from GitHub Actions artifacts (for any commit)
+
 ## Key Files
 
 - `awesome-cv.cls` - Awesome-CV class file defining document structure and styling
@@ -126,6 +145,7 @@ The CI/CD workflow (`.github/workflows/build-cv.yml`):
 - `update-version.sh` - Script to update version/date
 - `setup-hooks.sh` - Script to setup pre-commit hooks
 - `.pre-commit-config.yaml` - Pre-commit hooks configuration
-- `.gitignore` - Excludes LaTeX build artifacts and IDE files
+- `.gitignore` - Excludes LaTeX build artifacts, IDE files, and PDFs
 - `.editorconfig` - Editor configuration for consistent formatting
 - `.github/workflows/build-cv.yml` - GitHub Actions CI/CD workflow
+- `.github/workflows/release.yml` - GitHub Actions release automation workflow

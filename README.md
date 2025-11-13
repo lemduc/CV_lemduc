@@ -1,5 +1,7 @@
 # CV of Duc Minh Le
 
+[![Build CV](https://github.com/lemduc/CV_lemduc/workflows/Build%20CV/badge.svg)](https://github.com/lemduc/CV_lemduc/actions)
+
 My most up-to-date CV, based on the [Awesome-CV](https://github.com/posquit0/Awesome-CV) template.
 
 ## Requirements
@@ -109,6 +111,31 @@ The repository includes automated CI/CD that:
 - Automatically builds all CV variants
 - Uploads PDFs as downloadable artifacts
 - Can be manually triggered from the Actions tab
+
+### Creating Releases
+
+To create a versioned release with PDF attachments:
+
+```bash
+# Update version first
+make update-version
+
+# Commit changes
+git add .
+git commit -m "Update CV for [date/purpose]"
+
+# Create and push a version tag
+git tag v2025.11
+git push origin master --tags
+```
+
+The GitHub Actions workflow will automatically:
+1. Build all CV documents
+2. Create a GitHub release
+3. Attach PDFs and checksums to the release
+4. Make PDFs downloadable from the Releases page
+
+Since PDFs are now gitignored, use GitHub Releases or Actions artifacts to download built PDFs.
 
 ## License
 

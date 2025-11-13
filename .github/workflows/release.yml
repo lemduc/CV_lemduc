@@ -1,0 +1,66 @@
+name: Create Release
+
+on:
+  push:
+    tags:
+      - 'v*'  # Trigger on version tags like v2025.11, v2024.01, etc.
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Install LaTeX
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y texlive-xetex texlive-fonts-extra texlive-latex-extra
+
+    - name: Build all CV documents
+      run: make build-all
+
+    - name: Create checksums
+      run: |
+        sha256sum cv.pdf > checksums.txt
+        sha256sum cv_short.pdf >> checksums.txt
+        sha256sum coverletter.pdf >> checksums.txt
+
+    - name: Extract tag name
+      id: tag_name
+      run: echo "TAG=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+      with:
+        name: CV Release ${{ steps.tag_name.outputs.TAG }}
+        body: |
+          # CV Release ${{ steps.tag_name.outputs.TAG }}
+
+          Automated release of CV documents built on $(date +'%B %d, %Y').
+
+          ## Documents Included
+          - **cv.pdf** - Full curriculum vitae
+          - **cv_short.pdf** - Short CV
+          - **coverletter.pdf** - Cover letter template
+          - **checksums.txt** - SHA256 checksums for verification
+
+          ## Verification
+          Download the checksums.txt file and verify PDFs with:
+          ```bash
+          sha256sum -c checksums.txt
+          ```
+
+          ---
+          Built with [Awesome-CV](https://github.com/posquit0/Awesome-CV) template
+        files: |
+          cv.pdf
+          cv_short.pdf
+          coverletter.pdf
+          checksums.txt
+        draft: false
+        prerelease: false
