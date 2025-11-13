@@ -1,0 +1,47 @@
+name: Build CV
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Install LaTeX
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y texlive-xetex texlive-fonts-extra texlive-latex-extra
+
+    - name: Build full CV
+      run: make cv
+
+    - name: Build short CV
+      run: make cv_short
+
+    - name: Build resume
+      run: make resume
+      continue-on-error: true
+
+    - name: Build cover letter
+      run: make coverletter
+      continue-on-error: true
+
+    - name: Upload CV artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: cv-pdfs
+        path: |
+          cv.pdf
+          cv_short.pdf
+          resume.pdf
+          coverletter.pdf
+        retention-days: 90
+        if-no-files-found: warn

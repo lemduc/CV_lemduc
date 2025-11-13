@@ -1,9 +1,27 @@
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.synctex(busy)
+*.toc
+*.lof
+*.lot
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+
+# IDE files
 .idea/
-CV_lemduc.iml
-minh_cv/resume_template.synctex.gz
-cv.synctex(busy)
-cv.synctex.gz
-cv.aux
-cv_short.synctex.gz
-cv_short.out
-cv_short.aux
+*.iml
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
