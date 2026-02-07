@@ -39,6 +39,7 @@ Use the Makefile to build your CV:
 make              # Build full CV (default)
 make cv           # Build full CV (cv.pdf)
 make cv_short     # Build short CV (cv_short.pdf)
+make cv_staff     # Build staff-level CV (cv_staff.pdf)
 make coverletter  # Build cover letter (coverletter.pdf)
 make build-all    # Build all documents
 make clean        # Remove build artifacts (keep PDFs)
@@ -68,6 +69,7 @@ xelatex cv.tex
 
 - **cv.tex** - Full curriculum vitae with comprehensive details including research, patents, and publications
 - **cv_short.tex** - Condensed version emphasizing education and skills
+- **cv_staff.tex** - Staff-level CV focusing on leadership impact and technical expertise
 - **coverletter.tex** - Cover letter template
 
 ## Structure
@@ -75,6 +77,7 @@ xelatex cv.tex
 The repository uses a modular architecture:
 - `cv/` - Content sections for the full CV
 - `cv_short/` - Content sections for the short CV
+- `cv_staff/` - Content sections for the staff-level CV
 - `awesome-cv.cls` - LaTeX class file for styling
 - `fonts/` - Custom fonts used by the template
 

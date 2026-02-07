@@ -28,6 +28,7 @@ jobs:
       run: |
         sha256sum cv.pdf > checksums.txt
         sha256sum cv_short.pdf >> checksums.txt
+        sha256sum cv_staff.pdf >> checksums.txt
         sha256sum coverletter.pdf >> checksums.txt
 
     - name: Extract tag name
@@ -46,6 +47,7 @@ jobs:
           ## Documents Included
           - **cv.pdf** - Full curriculum vitae
           - **cv_short.pdf** - Short CV
+          - **cv_staff.pdf** - Staff-level CV
           - **coverletter.pdf** - Cover letter template
           - **checksums.txt** - SHA256 checksums for verification
 
@@ -60,6 +62,7 @@ jobs:
         files: |
           cv.pdf
           cv_short.pdf
+          cv_staff.pdf
           coverletter.pdf
           checksums.txt
         draft: false

@@ -1,7 +1,7 @@
 # Makefile for generating CV documents
 # Uses XeLaTeX to compile LaTeX documents
 
-.PHONY: all cv cv_short coverletter clean clean-all update-version help
+.PHONY: all cv cv_short cv_staff coverletter clean clean-all update-version help
 
 # Default target - build the full CV
 all: cv
@@ -14,12 +14,16 @@ cv:
 cv_short:
 	xelatex cv_short.tex
 
+# Build staff-level CV
+cv_staff:
+	xelatex cv_staff.tex
+
 # Build cover letter
 coverletter:
 	xelatex coverletter.tex
 
 # Build all documents
-build-all: cv cv_short coverletter
+build-all: cv cv_short cv_staff coverletter
 
 # Clean LaTeX build artifacts (keep PDFs)
 clean:
@@ -39,6 +43,7 @@ help:
 	@echo "  make          - Build full CV (cv.pdf)"
 	@echo "  make cv       - Build full CV (cv.pdf)"
 	@echo "  make cv_short - Build short CV (cv_short.pdf)"
+	@echo "  make cv_staff - Build staff-level CV (cv_staff.pdf)"
 	@echo "  make coverletter - Build cover letter (coverletter.pdf)"
 	@echo "  make build-all - Build all documents"
 	@echo "  make clean    - Remove build artifacts (keep PDFs)"

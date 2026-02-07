@@ -24,6 +24,7 @@ jobs:
       run: |
         chktex -q -n 1 -n 2 -n 3 -n 8 -n 13 -n 25 -n 36 cv.tex || true
         chktex -q -n 1 -n 2 -n 3 -n 8 -n 13 -n 25 -n 36 cv_short.tex || true
+        chktex -q -n 1 -n 2 -n 3 -n 8 -n 13 -n 25 -n 36 cv_staff.tex || true
       continue-on-error: true
 
     - name: Build full CV
@@ -31,6 +32,9 @@ jobs:
 
     - name: Build short CV
       run: make cv_short
+
+    - name: Build staff-level CV
+      run: make cv_staff
 
     - name: Build cover letter
       run: make coverletter
@@ -43,6 +47,7 @@ jobs:
         path: |
           cv.pdf
           cv_short.pdf
+          cv_staff.pdf
           coverletter.pdf
         retention-days: 90
         if-no-files-found: warn

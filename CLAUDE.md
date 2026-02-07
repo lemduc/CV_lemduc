@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a LaTeX-based CV repository using the Awesome-CV template (https://github.com/posquit0/Awesome-CV). The repository maintains three document variants with different levels of detail and content sections.
+This is a LaTeX-based CV repository using the Awesome-CV template (https://github.com/posquit0/Awesome-CV). The repository maintains four document variants with different levels of detail and content sections.
 
 ## Building Documents
 
@@ -14,6 +14,7 @@ Use the Makefile to build documents:
 make              # Build full CV (default)
 make cv           # Build full CV (cv.pdf)
 make cv_short     # Build short CV (cv_short.pdf)
+make cv_staff     # Build staff-level CV (cv_staff.pdf)
 make coverletter  # Build cover letter (coverletter.pdf)
 make build-all    # Build all documents
 make clean        # Remove build artifacts (keep PDFs)
@@ -36,6 +37,7 @@ Alternatively, compile directly using XeLaTeX:
 ```bash
 xelatex cv.tex           # Full CV with research, patents, publications
 xelatex cv_short.tex     # Short CV focused on education and skills
+xelatex cv_staff.tex     # Staff-level CV for senior roles
 xelatex coverletter.tex  # Cover letter template
 ```
 
@@ -45,7 +47,7 @@ LaTeX build artifacts (`.aux`, `.log`, `.synctex.gz`, `.fls`, `.fdb_latexmk`, `.
 
 ### Document Structure
 
-The repository uses a modular architecture where each main document (cv.tex, cv_short.tex) imports content sections from subdirectories:
+The repository uses a modular architecture where each main document (cv.tex, cv_short.tex, cv_staff.tex) imports content sections from subdirectories:
 
 - **cv.tex** → includes sections from `cv/` directory
   - Full curriculum vitae with comprehensive details
@@ -56,6 +58,12 @@ The repository uses a modular architecture where each main document (cv.tex, cv_
   - Condensed version emphasizing education and skills
   - Includes: summary, education, experience, skills, courses, honors
   - Optional sections (commented out): research, pubs
+
+- **cv_staff.tex** → includes sections from `cv_staff/` directory
+  - Staff-level CV for senior/principal engineer roles
+  - Includes: summary, experience, skills, patents, research, honors, education
+  - Focus: Leadership impact and technical expertise
+  - Optional sections (commented out): pubs
 
 - **coverletter.tex** → customizable cover letter template
   - Personal information matches CV
@@ -75,7 +83,7 @@ Each main `.tex` file contains:
 
 When editing the CV:
 - **Personal details**: Edit the preamble of the main .tex file (lines 54-69 in cv.tex)
-- **Content sections**: Edit the corresponding .tex file in cv/ or cv_short/ directories
+- **Content sections**: Edit the corresponding .tex file in cv/, cv_short/, or cv_staff/ directories
 - **Layout/spacing**: Adjust `\vspace{}` commands between sections in the main file
 - **Sections included**: Comment/uncomment `\input{}` lines in the main file
 - **Color scheme**: Change `\colorlet{awesome}{awesome-red}` to other Awesome-CV colors
